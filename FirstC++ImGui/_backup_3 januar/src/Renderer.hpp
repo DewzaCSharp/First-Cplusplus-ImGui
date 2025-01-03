@@ -4,7 +4,6 @@
 #include <iostream>
 #include "imgui_impl_glfw.h"
 #include "imgui_impl_opengl3.h"
-#include "wpm.hpp";
 
 bool MenuVisible = true;
 bool ConsoleVisible = false;
@@ -30,10 +29,6 @@ void Render()
             {
                 exit(0);
             }
-            if (ImGui::Button("Attach to Notepad"))
-            {
-                WPM1(L"Notepad");
-            }
             ImGui::SetCursorPos(ImVec2(470, 360));
             if (ImGui::Checkbox("Show Console", &ConsoleVisible))
             {
@@ -51,5 +46,6 @@ void Render()
         ::ShowWindow(::GetConsoleWindow(), SW_HIDE);
     }
 }
+
 
 #endif 
