@@ -71,12 +71,6 @@
     <ClInclude Include="src\Renderer.hpp">
       <Filter>Headerdateien</Filter>
     </ClInclude>
-    <ClInclude Include="src\WPM.hpp">
-      <Filter>Headerdateien</Filter>
-    </ClInclude>
-    <ClInclude Include="src\FindWindowByPartialTitle.hpp">
-      <Filter>Headerdateien</Filter>
-    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Font Include="src\impact.ttf" />

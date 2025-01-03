@@ -133,7 +133,6 @@
       <OptimizeReferences>true</OptimizeReferences>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <AdditionalDependencies>d3d9.lib;%(AdditionalDependencies)</AdditionalDependencies>
-      <UACExecutionLevel>RequireAdministrator</UACExecutionLevel>
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
@@ -147,10 +146,8 @@
     <ClCompile Include="vendor\ImGui\imgui_widgets.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="src\FindWindowByPartialTitle.hpp" />
     <ClInclude Include="src\misc.hpp" />
     <ClInclude Include="src\Renderer.hpp" />
-    <ClInclude Include="src\WPM.hpp" />
     <ClInclude Include="vendor\ImGui\backends\imgui_impl_dx9.h" />
     <ClInclude Include="vendor\ImGui\backends\imgui_impl_win32.h" />
     <ClInclude Include="vendor\ImGui\imconfig.h" />
