@@ -148,6 +148,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\FindWindowByPartialTitle.hpp" />
+    <ClInclude Include="src\MemoryReader.hpp" />
     <ClInclude Include="src\misc.hpp" />
     <ClInclude Include="src\Renderer.hpp" />
     <ClInclude Include="src\WPM.hpp" />

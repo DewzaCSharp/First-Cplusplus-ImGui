@@ -7,6 +7,7 @@
 #include <tchar.h>
 #include <string>
 #include <tlhelp32.h>
+#include "MemoryReader.hpp";
 
 using namespace std;
 
@@ -88,6 +89,17 @@ void Attach(const std::string procname)
         else
         {
             cout << "Found Process" << endl;
+            MemoryReader memoryReader(handle);
+
+            LPVOID address = reinterpret_cast<LPVOID>(0x12345678);
+
+            int intValue = memoryReader.ReadMemory<int>(address);
+            float floatValue = memoryReader.ReadMemory<float>(address);
+            string stringValue = memoryReader.ReadMemory<string>(address);
+
+            std::cout << "Read int: " << intValue << std::endl;
+            std::cout << "Read float: " << floatValue << std::endl;
+            std::cout << "Read string: " << stringValue << std::endl;
         }
     }
 }
