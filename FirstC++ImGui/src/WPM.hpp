@@ -61,11 +61,13 @@ HWND GetWindowByProcessName(const std::wstring& processName) {
     return hwnd;
 }
 
-void WPM1() {
+void Attach(const std::string procname)
+{
     int readTest = 0;
 
+    std::wstring wprocname(procname.begin(), procname.end());
     // Hier suchen wir nach Notepad (oder einem anderen Prozess, z. B. "notepad.exe")
-    HWND hwnd = GetWindowByProcessName(L"notepad.exe"); // Unicode-Literal für "notepad.exe"
+    HWND hwnd = GetWindowByProcessName(wprocname); // Unicode-Literal für "notepad.exe"
 
     // Check if HWND found the Window
     if (hwnd == NULL) {

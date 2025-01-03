@@ -32,7 +32,7 @@ void Render()
             }
             if (ImGui::Button("Attach to Notepad"))
             {
-                WPM1();
+                Attach("Notepad.exe");
             }
             ImGui::SetCursorPos(ImVec2(470, 360));
             if (ImGui::Checkbox("Show Console", &ConsoleVisible))
