@@ -150,6 +150,7 @@
     <ClInclude Include="src\FindWindowByPartialTitle.hpp" />
     <ClInclude Include="src\MemoryReader.hpp" />
     <ClInclude Include="src\misc.hpp" />
+    <ClInclude Include="src\readwrite.hpp" />
     <ClInclude Include="src\Renderer.hpp" />
     <ClInclude Include="src\WPM.hpp" />
     <ClInclude Include="vendor\ImGui\backends\imgui_impl_dx9.h" />

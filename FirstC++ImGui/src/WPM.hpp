@@ -88,20 +88,41 @@ void Attach(const std::string procname)
         }
         else
         {
+            // ReadProcessMemory(handle, (PBYTE*)0x061E9A18, &readTest, sizeof(readTest), 0);
+            cout << readTest << endl;
             cout << "Found Process" << endl;
             MemoryReader memoryReader(handle);
-
-            LPVOID address = reinterpret_cast<LPVOID>(0x12345678);
-
+            
+            LPVOID address = reinterpret_cast<LPVOID>(0x061E9A18);
+            
             int intValue = memoryReader.ReadMemory<int>(address);
             float floatValue = memoryReader.ReadMemory<float>(address);
             string stringValue = memoryReader.ReadMemory<string>(address);
-
+            
             std::cout << "Read int: " << intValue << std::endl;
             std::cout << "Read float: " << floatValue << std::endl;
             std::cout << "Read string: " << stringValue << std::endl;
         }
     }
+}
+
+DWORD_PTR getModuleBaseAddress(DWORD pid, const std::wstring& moduleName) {
+    DWORD_PTR moduleBaseAddress = 0;
+    HANDLE snapshot = CreateToolhelp32Snapshot(TH32CS_SNAPMODULE | TH32CS_SNAPMODULE32, pid);
+    if (snapshot != INVALID_HANDLE_VALUE) {
+        MODULEENTRY32 moduleEntry;
+        moduleEntry.dwSize = sizeof(moduleEntry);
+        if (Module32First(snapshot, &moduleEntry)) {
+            do {
+                if (moduleName == moduleEntry.szModule) {
+                    moduleBaseAddress = reinterpret_cast<DWORD_PTR>(moduleEntry.modBaseAddr);
+                    break;
+                }
+            } while (Module32Next(snapshot, &moduleEntry));
+        }
+    }
+    CloseHandle(snapshot);
+    return moduleBaseAddress;
 }
 
 #endif
